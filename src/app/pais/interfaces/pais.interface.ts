@@ -7,6 +7,8 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
+/*https://restcountries.com/*/
+
 export interface Country {
   name:         Name;
   tld:          string[];

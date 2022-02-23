@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class PaisService {
-  private apiUrl = 'https://restcountries.com/v3.1/name';
+  private apiUrl = 'https://restcountries.com/v3.1';
 
 
 
@@ -15,7 +15,13 @@ export class PaisService {
 
   buscar(query: string): Observable<Country[]> {
 
-    const url = `${this.apiUrl}/${query}`;
+    const url = `${this.apiUrl}/name/${query}`;
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarCapital(query: string): Observable<Country[]> {
+
+    const url = `${this.apiUrl}/capital/${query}`;
     return this.http.get<Country[]>(url);
   }
 }
