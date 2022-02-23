@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SearchCountriesResponse } from '../interfaces/search-countries-response';
+import { Country } from '../interfaces/pais.interface';
 import { Observable, of } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -10,16 +9,13 @@ import { catchError } from 'rxjs/operators';
 export class PaisService {
   private apiUrl = 'https://restcountries.com/v3.1/name';
 
-  private _paises: SearchCountriesResponse[] = [];
 
-  get paises() {
-    return [...this._paises];
-  }
 
   constructor(private http: HttpClient) {}
 
-  buscar(query: string): Observable<any> {
+  buscar(query: string): Observable<Country[]> {
+
     const url = `${this.apiUrl}/${query}`;
-    return this.http.get(url);
+    return this.http.get<Country[]>(url);
   }
 }
