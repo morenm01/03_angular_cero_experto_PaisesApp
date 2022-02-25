@@ -1,4 +1,4 @@
-<div *ngIf="!pais; else divPais" class="alert alert-info">
+<div *ngIf="!pais; else divPais" class="alert alert-info animate__animated animate__fadeIn">
   Espere por favor ...
 </div>
 
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-4">
       <h3>Bandera</h3>
       <img [src]="pais.flags.png" class="img-thumbnail" />
@@ -19,6 +19,9 @@
     <div class="col">
       <h3>Información</h3>
       <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Capital</strong> {{ pais.capital }}
+        </li>
         <li class="list-group-item">
           <strong>Población</strong> {{ pais.population | number }}
         </li>
@@ -31,6 +34,7 @@
       </ul>
     </div>
   </div>
+
   <h3>Traducciones</h3>
   <div class="row">
     <div class="col">
@@ -42,8 +46,10 @@
       <span class="badge bg-primary mr-1">{{pais.translations.ara.official}}</span>
     </div>
   </div>
-
-  <pre>
+<!--
+    <pre>
     {{pais | json}}
   </pre>
 </ng-template>
+-->
+
