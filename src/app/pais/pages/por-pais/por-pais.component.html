@@ -12,12 +12,8 @@
   </div>
   <ul *ngIf="mostrarSugerencias" class="list-group">
     <!--<li (click)="buscarSugerido(termino)"-->
-    <li
-      (click)="buscar(termino)"
-      class="list-group-item list-group-item-action"
-    >
-      <a class="nav-link"></a>
-      Buscar "{{ termino }}"
+    <li class="list-group-item list-group-item-action">
+      <a class="nav-link" (click)="buscar(termino)"> Buscar "{{ termino }}" </a>
     </li>
     <li
       *ngFor="let pais of paisSugerido"
